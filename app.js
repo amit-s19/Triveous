@@ -38,4 +38,4 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     console.log('Connected to DB!')
 );
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
