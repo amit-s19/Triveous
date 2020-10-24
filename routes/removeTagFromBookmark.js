@@ -28,7 +28,8 @@ router.delete('/', (req,res) => {
                     const foundTags = result.tags
                     if(foundTags.includes(tagID)) {
                         Bookmarks.updateOne({link: bookmark}, {
-                            $pull: {tags: tagID}
+                            $pull: {tags: tagID},
+                            $set: {time_updated: new Date().getTime()}
                         }).then(result => {
                             let Res = {
                                 response: true,

@@ -35,7 +35,8 @@ router.post('/', (req,res) => {
                         return res.status(400).send(Res);
                     } else {
                         Bookmarks.updateOne({link: bookmark}, {
-                            $addToSet: {tags: tagID}
+                            $addToSet: {tags: tagID},
+                            $set: {time_updated: new Date().getTime()}
                         }).then((result) => {
                             let Res = {
                                 response: true,
