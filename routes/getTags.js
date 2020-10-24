@@ -3,7 +3,7 @@ const router = express.Router();
 const Tags = require('../models/tags');
 
 router.get('/', (req,res) => {
-    Tags.findOne({}).then(result => {
+    Tags.find({}).then(result => {
         if(!result) {
             let Res = {
                 response: false,
